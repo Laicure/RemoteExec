@@ -56,14 +56,14 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0"),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("4"),  _
          Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
-        Public Property GetIntervalIndex() As Integer
+        Public Property RefInterval() As Integer
             Get
-                Return CType(Me("GetIntervalIndex"),Integer)
+                Return CType(Me("RefInterval"),Integer)
             End Get
             Set
-                Me("GetIntervalIndex") = value
+                Me("RefInterval") = value
             End Set
         End Property
         

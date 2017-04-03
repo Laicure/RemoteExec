@@ -28,9 +28,9 @@ Partial Class MainX
         Me.butHide = New System.Windows.Forms.Button()
         Me.butOptions = New System.Windows.Forms.Button()
         Me.conMenuOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.toolStripCBInterval = New System.Windows.Forms.ToolStripComboBox()
-        Me.toolStripOccu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripChOccuOnce = New System.Windows.Forms.ToolStripMenuItem()
         Me.notIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.toolStriptxtInterval = New System.Windows.Forms.ToolStripTextBox()
         Me.conMenuOptions.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -78,38 +78,39 @@ Partial Class MainX
         'conMenuOptions
         '
         Me.conMenuOptions.BackColor = System.Drawing.Color.Black
-        Me.conMenuOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStripCBInterval, Me.toolStripOccu})
+        Me.conMenuOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStriptxtInterval, Me.toolStripChOccuOnce})
         Me.conMenuOptions.Name = "conMenuOptions"
         Me.conMenuOptions.ShowCheckMargin = True
         Me.conMenuOptions.ShowImageMargin = False
-        Me.conMenuOptions.Size = New System.Drawing.Size(182, 75)
+        Me.conMenuOptions.Size = New System.Drawing.Size(161, 73)
         '
-        'toolStripCBInterval
+        'toolStripChOccuOnce
         '
-        Me.toolStripCBInterval.BackColor = System.Drawing.Color.Black
-        Me.toolStripCBInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.toolStripCBInterval.ForeColor = System.Drawing.Color.White
-        Me.toolStripCBInterval.Items.AddRange(New Object() {"1min", "2mins", "3mins", "4mins", "5mins", "6mins", "7mins", "8mins", "9mins", "10mins", "15mins", "20mins", "25mins", "30mins"})
-        Me.toolStripCBInterval.Name = "toolStripCBInterval"
-        Me.toolStripCBInterval.Size = New System.Drawing.Size(121, 23)
-        Me.toolStripCBInterval.ToolTipText = "Interval for checking scripts using the given path"
-        '
-        'toolStripOccu
-        '
-        Me.toolStripOccu.Checked = True
-        Me.toolStripOccu.CheckOnClick = True
-        Me.toolStripOccu.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.toolStripOccu.ForeColor = System.Drawing.Color.White
-        Me.toolStripOccu.Name = "toolStripOccu"
-        Me.toolStripOccu.Size = New System.Drawing.Size(181, 22)
-        Me.toolStripOccu.Text = "Run Script Once"
-        Me.toolStripOccu.ToolTipText = "Run script once every time a new script is detected"
+        Me.toolStripChOccuOnce.Checked = True
+        Me.toolStripChOccuOnce.CheckOnClick = True
+        Me.toolStripChOccuOnce.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.toolStripChOccuOnce.ForeColor = System.Drawing.Color.White
+        Me.toolStripChOccuOnce.Name = "toolStripChOccuOnce"
+        Me.toolStripChOccuOnce.Size = New System.Drawing.Size(160, 22)
+        Me.toolStripChOccuOnce.Text = "Run Script Once"
+        Me.toolStripChOccuOnce.ToolTipText = "Run script once every time a new script is detected"
         '
         'notIcon
         '
         Me.notIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
         Me.notIcon.BalloonTipTitle = "Remote Executor"
         Me.notIcon.Text = "Remote Exec"
+        '
+        'toolStriptxtInterval
+        '
+        Me.toolStriptxtInterval.BackColor = System.Drawing.Color.Black
+        Me.toolStriptxtInterval.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.toolStriptxtInterval.ForeColor = System.Drawing.Color.White
+        Me.toolStriptxtInterval.Name = "toolStriptxtInterval"
+        Me.toolStriptxtInterval.Size = New System.Drawing.Size(100, 23)
+        Me.toolStriptxtInterval.Text = "4"
+        Me.toolStriptxtInterval.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.toolStriptxtInterval.ToolTipText = "Execution and Script path check interval in minutes"
         '
         'MainX
         '
@@ -130,6 +131,7 @@ Partial Class MainX
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Remote Executor"
         Me.conMenuOptions.ResumeLayout(False)
+        Me.conMenuOptions.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -139,7 +141,7 @@ Partial Class MainX
     Friend WithEvents butHide As System.Windows.Forms.Button
     Friend WithEvents butOptions As System.Windows.Forms.Button
     Friend WithEvents conMenuOptions As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents toolStripCBInterval As System.Windows.Forms.ToolStripComboBox
-    Friend WithEvents toolStripOccu As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents toolStripChOccuOnce As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents notIcon As System.Windows.Forms.NotifyIcon
+    Friend WithEvents toolStriptxtInterval As System.Windows.Forms.ToolStripTextBox
 End Class
