@@ -58,9 +58,9 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("4"),  _
          Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
-        Public Property RefInterval() As Integer
+        Public Property RefInterval() As Double
             Get
-                Return CType(Me("RefInterval"),Integer)
+                Return CType(Me("RefInterval"),Double)
             End Get
             Set
                 Me("RefInterval") = value
@@ -90,6 +90,19 @@ Namespace My
             End Get
             Set
                 Me("RunOncePerScript") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False"),  _
+         Global.System.Configuration.SettingsManageabilityAttribute(Global.System.Configuration.SettingsManageability.Roaming)>  _
+        Public Property AutoStealth() As Boolean
+            Get
+                Return CType(Me("AutoStealth"),Boolean)
+            End Get
+            Set
+                Me("AutoStealth") = value
             End Set
         End Property
     End Class

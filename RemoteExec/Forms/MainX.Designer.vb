@@ -28,9 +28,12 @@ Partial Class MainX
         Me.butHide = New System.Windows.Forms.Button()
         Me.butOptions = New System.Windows.Forms.Button()
         Me.conMenuOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.toolStriptxtInterval = New System.Windows.Forms.ToolStripTextBox()
         Me.toolStripChOccuOnce = New System.Windows.Forms.ToolStripMenuItem()
         Me.notIcon = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.toolStriptxtInterval = New System.Windows.Forms.ToolStripTextBox()
+        Me.bgGetScript = New System.ComponentModel.BackgroundWorker()
+        Me.tipper = New System.Windows.Forms.ToolTip(Me.components)
+        Me.toolStripChAutoStealth = New System.Windows.Forms.ToolStripMenuItem()
         Me.conMenuOptions.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -48,6 +51,7 @@ Partial Class MainX
         Me.txtURL.Size = New System.Drawing.Size(240, 22)
         Me.txtURL.TabIndex = 0
         Me.txtURL.TabStop = False
+        Me.tipper.SetToolTip(Me.txtURL, "Script path")
         Me.txtURL.WordWrap = False
         '
         'butHide
@@ -60,6 +64,7 @@ Partial Class MainX
         Me.butHide.TabIndex = 1
         Me.butHide.TabStop = False
         Me.butHide.Text = "Hide"
+        Me.tipper.SetToolTip(Me.butHide, "Hide and Start the countdown")
         Me.butHide.UseVisualStyleBackColor = False
         '
         'butOptions
@@ -78,28 +83,11 @@ Partial Class MainX
         'conMenuOptions
         '
         Me.conMenuOptions.BackColor = System.Drawing.Color.Black
-        Me.conMenuOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStriptxtInterval, Me.toolStripChOccuOnce})
+        Me.conMenuOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.toolStriptxtInterval, Me.toolStripChOccuOnce, Me.toolStripChAutoStealth})
         Me.conMenuOptions.Name = "conMenuOptions"
         Me.conMenuOptions.ShowCheckMargin = True
         Me.conMenuOptions.ShowImageMargin = False
         Me.conMenuOptions.Size = New System.Drawing.Size(161, 73)
-        '
-        'toolStripChOccuOnce
-        '
-        Me.toolStripChOccuOnce.Checked = True
-        Me.toolStripChOccuOnce.CheckOnClick = True
-        Me.toolStripChOccuOnce.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.toolStripChOccuOnce.ForeColor = System.Drawing.Color.White
-        Me.toolStripChOccuOnce.Name = "toolStripChOccuOnce"
-        Me.toolStripChOccuOnce.Size = New System.Drawing.Size(160, 22)
-        Me.toolStripChOccuOnce.Text = "Run Script Once"
-        Me.toolStripChOccuOnce.ToolTipText = "Run script once every time a new script is detected"
-        '
-        'notIcon
-        '
-        Me.notIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
-        Me.notIcon.BalloonTipTitle = "Remote Executor"
-        Me.notIcon.Text = "Remote Exec"
         '
         'toolStriptxtInterval
         '
@@ -111,6 +99,44 @@ Partial Class MainX
         Me.toolStriptxtInterval.Text = "4"
         Me.toolStriptxtInterval.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.toolStriptxtInterval.ToolTipText = "Execution and Script path check interval in minutes"
+        '
+        'toolStripChOccuOnce
+        '
+        Me.toolStripChOccuOnce.Checked = True
+        Me.toolStripChOccuOnce.CheckOnClick = True
+        Me.toolStripChOccuOnce.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.toolStripChOccuOnce.ForeColor = System.Drawing.Color.White
+        Me.toolStripChOccuOnce.Name = "toolStripChOccuOnce"
+        Me.toolStripChOccuOnce.Size = New System.Drawing.Size(160, 22)
+        Me.toolStripChOccuOnce.Text = "Run Script Once"
+        Me.toolStripChOccuOnce.ToolTipText = "Newly detected script is run only once" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(prevents execution loop)"
+        '
+        'notIcon
+        '
+        Me.notIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.notIcon.BalloonTipTitle = "Remote Executor"
+        Me.notIcon.Text = "Remote Exec"
+        '
+        'bgGetScript
+        '
+        '
+        'tipper
+        '
+        Me.tipper.BackColor = System.Drawing.Color.White
+        Me.tipper.ForeColor = System.Drawing.Color.Black
+        Me.tipper.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info
+        Me.tipper.ToolTipTitle = "RemoteExec"
+        Me.tipper.UseAnimation = False
+        Me.tipper.UseFading = False
+        '
+        'toolStripChAutoStealth
+        '
+        Me.toolStripChAutoStealth.CheckOnClick = True
+        Me.toolStripChAutoStealth.ForeColor = System.Drawing.Color.White
+        Me.toolStripChAutoStealth.Name = "toolStripChAutoStealth"
+        Me.toolStripChAutoStealth.Size = New System.Drawing.Size(160, 22)
+        Me.toolStripChAutoStealth.Text = "Auto Start"
+        Me.toolStripChAutoStealth.ToolTipText = "Auto Starts the app without showing any UI"
         '
         'MainX
         '
@@ -127,7 +153,6 @@ Partial Class MainX
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "MainX"
         Me.Padding = New System.Windows.Forms.Padding(1)
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Remote Executor"
         Me.conMenuOptions.ResumeLayout(False)
@@ -144,4 +169,7 @@ Partial Class MainX
     Friend WithEvents toolStripChOccuOnce As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents notIcon As System.Windows.Forms.NotifyIcon
     Friend WithEvents toolStriptxtInterval As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents bgGetScript As System.ComponentModel.BackgroundWorker
+    Friend WithEvents tipper As System.Windows.Forms.ToolTip
+    Friend WithEvents toolStripChAutoStealth As System.Windows.Forms.ToolStripMenuItem
 End Class
