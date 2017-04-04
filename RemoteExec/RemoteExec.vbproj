@@ -30,11 +30,13 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
-    <DefineTrace>true</DefineTrace>
+    <DefineTrace>false</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>RemoteExec.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -71,6 +73,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\ExecMsgBox.Designer.vb">
+      <DependentUpon>ExecMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ExecMsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\MainX.Designer.vb">
       <DependentUpon>MainX.vb</DependentUpon>
     </Compile>
@@ -94,6 +102,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\ExecMsgBox.resx">
+      <DependentUpon>ExecMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainX.resx">
       <DependentUpon>MainX.vb</DependentUpon>
     </EmbeddedResource>
@@ -121,6 +132,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\script.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Forms\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

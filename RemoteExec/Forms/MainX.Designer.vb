@@ -30,10 +30,10 @@ Partial Class MainX
         Me.conMenuOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.toolStriptxtInterval = New System.Windows.Forms.ToolStripTextBox()
         Me.toolStripChOccuOnce = New System.Windows.Forms.ToolStripMenuItem()
+        Me.toolStripChAutoStealth = New System.Windows.Forms.ToolStripMenuItem()
         Me.notIcon = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.bgGetScript = New System.ComponentModel.BackgroundWorker()
         Me.tipper = New System.Windows.Forms.ToolTip(Me.components)
-        Me.toolStripChAutoStealth = New System.Windows.Forms.ToolStripMenuItem()
         Me.conMenuOptions.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -111,6 +111,15 @@ Partial Class MainX
         Me.toolStripChOccuOnce.Text = "Run Script Once"
         Me.toolStripChOccuOnce.ToolTipText = "Newly detected script is run only once" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(prevents execution loop)"
         '
+        'toolStripChAutoStealth
+        '
+        Me.toolStripChAutoStealth.CheckOnClick = True
+        Me.toolStripChAutoStealth.ForeColor = System.Drawing.Color.White
+        Me.toolStripChAutoStealth.Name = "toolStripChAutoStealth"
+        Me.toolStripChAutoStealth.Size = New System.Drawing.Size(160, 22)
+        Me.toolStripChAutoStealth.Text = "Auto Start"
+        Me.toolStripChAutoStealth.ToolTipText = "Auto Starts the app without showing any UI"
+        '
         'notIcon
         '
         Me.notIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
@@ -129,20 +138,12 @@ Partial Class MainX
         Me.tipper.UseAnimation = False
         Me.tipper.UseFading = False
         '
-        'toolStripChAutoStealth
-        '
-        Me.toolStripChAutoStealth.CheckOnClick = True
-        Me.toolStripChAutoStealth.ForeColor = System.Drawing.Color.White
-        Me.toolStripChAutoStealth.Name = "toolStripChAutoStealth"
-        Me.toolStripChAutoStealth.Size = New System.Drawing.Size(160, 22)
-        Me.toolStripChAutoStealth.Text = "Auto Start"
-        Me.toolStripChAutoStealth.ToolTipText = "Auto Starts the app without showing any UI"
-        '
         'MainX
         '
+        Me.AcceptButton = Me.butHide
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(343, 24)
         Me.Controls.Add(Me.butOptions)
         Me.Controls.Add(Me.butHide)
@@ -155,6 +156,7 @@ Partial Class MainX
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Remote Executor"
+        Me.TopMost = True
         Me.conMenuOptions.ResumeLayout(False)
         Me.conMenuOptions.PerformLayout()
         Me.ResumeLayout(False)
