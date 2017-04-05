@@ -22,24 +22,24 @@ Partial Class ExecMsgBox
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.txtMsgBox = New System.Windows.Forms.TextBox()
+        Me.rtbMsgBox = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
-        'txtMsgBox
+        'rtbMsgBox
         '
-        Me.txtMsgBox.BackColor = System.Drawing.Color.Black
-        Me.txtMsgBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtMsgBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtMsgBox.ForeColor = System.Drawing.Color.White
-        Me.txtMsgBox.Location = New System.Drawing.Point(1, 1)
-        Me.txtMsgBox.Multiline = True
-        Me.txtMsgBox.Name = "txtMsgBox"
-        Me.txtMsgBox.ReadOnly = True
-        Me.txtMsgBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtMsgBox.Size = New System.Drawing.Size(282, 159)
-        Me.txtMsgBox.TabIndex = 0
-        Me.txtMsgBox.TabStop = False
-        Me.txtMsgBox.WordWrap = False
+        Me.rtbMsgBox.BackColor = System.Drawing.Color.Black
+        Me.rtbMsgBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.rtbMsgBox.DetectUrls = False
+        Me.rtbMsgBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtbMsgBox.ForeColor = System.Drawing.Color.White
+        Me.rtbMsgBox.Location = New System.Drawing.Point(1, 1)
+        Me.rtbMsgBox.Name = "rtbMsgBox"
+        Me.rtbMsgBox.ReadOnly = True
+        Me.rtbMsgBox.Size = New System.Drawing.Size(282, 159)
+        Me.rtbMsgBox.TabIndex = 0
+        Me.rtbMsgBox.TabStop = False
+        Me.rtbMsgBox.Text = ""
+        Me.rtbMsgBox.WordWrap = False
         '
         'ExecMsgBox
         '
@@ -47,7 +47,7 @@ Partial Class ExecMsgBox
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(284, 161)
-        Me.Controls.Add(Me.txtMsgBox)
+        Me.Controls.Add(Me.rtbMsgBox)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.ForeColor = System.Drawing.Color.White
@@ -57,8 +57,7 @@ Partial Class ExecMsgBox
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Remote Execution Message Box"
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents txtMsgBox As System.Windows.Forms.TextBox
+    Friend WithEvents rtbMsgBox As System.Windows.Forms.RichTextBox
 End Class

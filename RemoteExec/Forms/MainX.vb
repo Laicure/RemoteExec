@@ -142,7 +142,7 @@
                 If Not ExecMsgBox.Visible Then
                     ExecMsgBox.Show(Me)
                 End If
-                ExecMsgBox.txtMsgBox.Text = Replace(secondParam, "\n", vbCrLf)
+                ExecMsgBox.rtbMsgBox.Text = Replace(secondParam, "\n", vbCrLf)
                 ExecMsgBox.Activate()
             ElseIf firstParam = "cmd" Then
                 Try
